@@ -6,6 +6,7 @@
 //  Copyright © 2018 QuickBird Studios. All rights reserved.
 //
 
+import Foundation
 import XCoordinator
 
 enum NewsRoute: Route {
@@ -15,15 +16,15 @@ enum NewsRoute: Route {
 }
 
 class NewsCoordinator: NavigationCoordinator<NewsRoute> {
-
+    
     // MARK: Initialization
-
+    
     init() {
         super.init(initialRoute: .news)
     }
-
+    
     // MARK: Overrides
-
+    
     override func prepareTransition(for route: NewsRoute) -> NavigationTransition {
         switch route {
         case .news:
@@ -47,5 +48,5 @@ class NewsCoordinator: NavigationCoordinator<NewsRoute> {
             return .dismissToRoot()
         }
     }
-
+    
 }

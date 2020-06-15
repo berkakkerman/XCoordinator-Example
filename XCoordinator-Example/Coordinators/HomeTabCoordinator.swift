@@ -12,6 +12,7 @@ import XCoordinator
 enum HomeRoute: Route {
     case news
     case userList
+    case bestUser
 }
 
 class HomeTabCoordinator: TabBarCoordinator<HomeRoute> {
@@ -26,10 +27,10 @@ class HomeTabCoordinator: TabBarCoordinator<HomeRoute> {
     convenience init() {
         let newsCoordinator = NewsCoordinator()
         newsCoordinator.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 0)
-
+        
         let userListCoordinator = UserListCoordinator()
         userListCoordinator.rootViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
-
+        
         self.init(newsRouter: newsCoordinator.strongRouter,
                   userListRouter: userListCoordinator.strongRouter)
     }
@@ -39,7 +40,8 @@ class HomeTabCoordinator: TabBarCoordinator<HomeRoute> {
         self.newsRouter = newsRouter
         self.userListRouter = userListRouter
 
-        super.init(tabs: [newsRouter, userListRouter], select: userListRouter)
+        super.init(tabs: [newsRouter, userListRouter], select: newsRouter)
+        self.addBestUserButton(target: self, action: #selector(navAction))
     }
 
     // MARK: Overrides
@@ -50,7 +52,23 @@ class HomeTabCoordinator: TabBarCoordinator<HomeRoute> {
             return .select(newsRouter)
         case .userList:
             return .select(userListRouter)
+        case .bestUser:
+            let coordinator = UserCoordinator(user: "Berk")
+            return .present(coordinator, animation: .default)
         }
     }
+    
+    @objc func navAction() {
+        self.trigger(.bestUser)
+    }
 
+}
+
+extension TabBarCoordinator {
+    
+    func addBestUserButton(title: String? = "Best User", style: UIBarButtonItem.Style = .plain, target: Any?, action: Selector?) {
+        for viewController in self.rootViewController.viewControllers ?? [] {            
+            viewController.children.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: target, action: action)
+        }
+    }
 }
