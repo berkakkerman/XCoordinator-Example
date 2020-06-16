@@ -22,7 +22,9 @@ class UserListCoordinator: NavigationCoordinator<UserListRoute> {
     // MARK: Initialization
     
     init() {
-        super.init(rootViewController: MyNavigationController(), initialRoute: .home)
+        let root = MyNavigationController()
+        super.init(rootViewController: root, initialRoute: .home)
+        root.navDelegate = self
     }
 
     // MARK: Overrides
@@ -56,4 +58,18 @@ class UserListCoordinator: NavigationCoordinator<UserListRoute> {
         }
     }
 
+}
+
+extension UserListCoordinator: MyNavigationDelegate {
+    
+    func navigate(_ source: NavigateSource) {
+        switch source {
+        case .users:
+            self.trigger(.users)
+            break
+        case .logout:
+            self.trigger(.logout)
+            break
+        }
+    }
 }

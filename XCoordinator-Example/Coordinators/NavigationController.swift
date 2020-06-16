@@ -9,16 +9,27 @@
 import Foundation
 import UIKit
 
+protocol MyNavigationDelegate: class {
+    func navigate(_ source: NavigateSource)
+}
+
+enum NavigateSource {
+    case users
+    case logout
+}
+
 class MyNavigationController: UINavigationController {
     
+    weak var navDelegate: MyNavigationDelegate?
+    
     var leftBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Left Item", style: .plain, target: self, action: #selector(leftAction))
+        let barButtonItem = UIBarButtonItem(title: "Users", style: .plain, target: self, action: #selector(leftAction))
         barButtonItem.tintColor = .systemIndigo
         return barButtonItem
     }()
     
     var rightBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Right Item", style: .plain, target: self, action: #selector(rightAction))
+        let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(rightAction))
         barButtonItem.tintColor = .systemTeal
         return barButtonItem
     }()
@@ -45,10 +56,10 @@ class MyNavigationController: UINavigationController {
 extension MyNavigationController {
     
     @objc func leftAction() {
-        debugPrint("leftAction")
+        navDelegate?.navigate(.users)
     }
     
     @objc func rightAction() {
-        debugPrint("rightAction")
+        navDelegate?.navigate(.logout)
     }
 }
