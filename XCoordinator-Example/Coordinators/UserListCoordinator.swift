@@ -22,7 +22,7 @@ class UserListCoordinator: NavigationCoordinator<UserListRoute> {
     // MARK: Initialization
     
     init() {
-        super.init(initialRoute: .home)
+        super.init(rootViewController: MyNavigationController(), initialRoute: .home)
     }
 
     // MARK: Overrides

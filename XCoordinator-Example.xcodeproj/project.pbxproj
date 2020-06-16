@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60E3BFAF2497ACE5002C22D9 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3BFAE2497ACE5002C22D9 /* NavigationController.swift */; };
 		9B0A753A2316C1810092CA3A /* XCoordinatorRx in Frameworks */ = {isa = PBXBuildFile; productRef = 9B0A75392316C1810092CA3A /* XCoordinatorRx */; };
 		9B56575B2315FA7E00F4F4F7 /* XCoordinator_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B56575A2315FA7E00F4F4F7 /* XCoordinator_ExampleUITests.swift */; };
 		9B5657A72315FB3500F4F4F7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5657692315FB3500F4F4F7 /* AppCoordinator.swift */; };
@@ -91,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60E3BFAE2497ACE5002C22D9 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9B5657352315FA7B00F4F4F7 /* XCoordinator-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XCoordinator-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5657462315FA7E00F4F4F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B56574B2315FA7E00F4F4F7 /* XCoordinator-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "XCoordinator-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +271,7 @@
 				9B56576E2315FB3500F4F4F7 /* HomeTabCoordinator.swift */,
 				9B56576F2315FB3500F4F4F7 /* HomePageCoordinator.swift */,
 				9B5657702315FB3500F4F4F7 /* AboutCoordinator.swift */,
+				60E3BFAE2497ACE5002C22D9 /* NavigationController.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				9B5657B82315FB3500F4F4F7 /* NewsDetailViewModelImpl.swift in Sources */,
 				9BD3EBF42330CE46005861BF /* Transitions.swift in Sources */,
 				9B5657B62315FB3500F4F4F7 /* HomeViewModelImpl.swift in Sources */,
+				60E3BFAF2497ACE5002C22D9 /* NavigationController.swift in Sources */,
 				9B5657CF2315FB3500F4F4F7 /* Animation+Navigation.swift in Sources */,
 				9B5657C42315FB3500F4F4F7 /* NewsViewModelImpl.swift in Sources */,
 				9B5657AE2315FB3500F4F4F7 /* AboutCoordinator.swift in Sources */,
