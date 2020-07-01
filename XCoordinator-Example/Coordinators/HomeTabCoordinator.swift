@@ -40,7 +40,7 @@ class HomeTabCoordinator: TabBarCoordinator<HomeRoute> {
         self.newsRouter = newsRouter
         self.userListRouter = userListRouter
 
-        super.init(tabs: [newsRouter, userListRouter], select: newsRouter)
+        super.init(tabs: [newsRouter, userListRouter], select: userListRouter)
         self.addBestUserButton(target: self, action: #selector(navAction))
     }
 
